@@ -19,20 +19,29 @@ body {
 header {
     background-color: #002147;
     color: white;
-    padding: 20px 10%;
-    text-align: center;
+    padding: 15px 10%;
 }
 
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 18px;
 }
 
 .logo {
-    width: 600px;
+    width: 110px; /* Bigger logo */
     height: auto;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.header-text p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
 }
 
 /* NAVBAR */
@@ -41,6 +50,7 @@ nav {
     padding: 10px 10%;
     position: sticky;
     top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: center;
 }
@@ -58,40 +68,41 @@ nav a:hover {
 
 /* SECTIONS */
 section {
-    padding: 25px 10%;
+    padding: 30px 10%; /* reduced spacing */
 }
 
 h2 {
     color: #002147;
     border-bottom: 2px solid #004080;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* BOX */
 .box {
     background: white;
-    padding: 20px;
+    padding: 18px;
     border-radius: 6px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
-/* PROFILE */
+/* PROFILE CARDS */
 .profile {
     display: flex;
     background: white;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 18px;
+    margin-bottom: 18px;
     border-radius: 6px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
 .profile img {
-    width: 150px;
-    height: 180px;
+    width: 140px;
+    height: 170px;
     object-fit: cover;
     border-radius: 6px;
-    margin-right: 25px;
+    margin-right: 20px;
+    border: 2px solid #eee;
 }
 
 /* BUTTON */
@@ -113,7 +124,7 @@ h2 {
 .popup {
     display: none;
     position: absolute;
-    width: 320px;
+    width: 300px;
     background: white;
     padding: 15px;
     border-radius: 6px;
@@ -122,10 +133,10 @@ h2 {
     border-top: 4px solid #004080;
 }
 
-/* STAFF GRID */
+/* PROJECT STAFF */
 .staff-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
 }
 
@@ -139,11 +150,22 @@ h2 {
 }
 
 .staff-card img {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 12px;
+}
+
+.staff-info h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #002147;
+}
+
+.staff-info p {
+    margin: 2px 0;
+    font-size: 13px;
 }
 
 /* RADAR */
@@ -152,7 +174,7 @@ h2 {
 }
 
 .radar-img {
-    width: 500px;
+    width: 480px;
     max-width: 100%;
     border-radius: 6px;
 }
@@ -162,22 +184,43 @@ footer {
     background-color: #002147;
     color: white;
     text-align: center;
-    padding: 25px;
-    margin-top: 30px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile img {
+        margin-bottom: 10px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="header-container">
-        <img src="image/logo.gif" class="logo">
-        <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
+        <img src="image/logo.gif" alt="IITM Logo" class="logo">
+        <div class="header-text">
+            <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
+            <p>ART Mesonet Mumbai</p>
+        </div>
     </div>
-    <p>ART Mesonet Mumbai</p>
 </header>
 
+<!-- NAV -->
 <nav>
 <a href="#about">About</a>
 <a href="#team">Team</a>
@@ -204,9 +247,9 @@ ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automa
 <img src="image/Suryachandra.jpg">
 <div>
 <h3>Director – Dr. Suryachandra A. Rao</h3>
-<p><strong>Expertise:</strong> Climate Variability & Prediction</p>
-<button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic Records</button>
-<button class="btn" onclick="togglePopup(event,'raoResearch')">Research Interests</button>
+<p><strong>Expertise:</strong> Climate Variability and Prediction</p>
+<button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic</button>
+<button class="btn" onclick="togglePopup(event,'raoResearch')">Research</button>
 </div>
 </div>
 
@@ -215,8 +258,8 @@ ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automa
 <div>
 <h3>Dr. (Smt.) B. Padma Kumari</h3>
 <p><strong>Expertise:</strong> Aerosol–Cloud–Radiation</p>
-<button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic Records</button>
-<button class="btn" onclick="togglePopup(event,'padmaResearch')">Research Interests</button>
+<button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic</button>
+<button class="btn" onclick="togglePopup(event,'padmaResearch')">Research</button>
 </div>
 </div>
 
@@ -224,9 +267,9 @@ ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automa
 <img src="image/subrata.jpg">
 <div>
 <h3>Dr. Subrata Kumar Das</h3>
-<p><strong>Expertise:</strong> Mesoscale Meteorology & Radar</p>
-<button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic Records</button>
-<button class="btn" onclick="togglePopup(event,'subrataResearch')">Research Interests</button>
+<p><strong>Expertise:</strong> Radar & Lidar Remote Sensing</p>
+<button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic</button>
+<button class="btn" onclick="togglePopup(event,'subrataResearch')">Research</button>
 </div>
 </div>
 
@@ -237,7 +280,7 @@ ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automa
 <h2>Project Infrastructure</h2>
 <div class="box">
 <ul>
-<li><strong>Automatic Rain Gauges:</strong> High-precision rainfall measurement</li>
+<li><strong>Automatic Rain Gauges:</strong> Real-time rainfall measurement</li>
 <li><strong>Doppler X-Band Radar:</strong> High-resolution storm tracking</li>
 <li><strong>Real-Time Data Logging:</strong> Continuous monitoring</li>
 </ul>
@@ -253,12 +296,61 @@ ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automa
 <h2>Project Staff</h2>
 
 <div class="staff-container">
-<div class="staff-card"><img src="image/profile.jpg"><div><b>Sunil Sir</b><br>Project Staff<br>sunil@iitm.ac.in</div></div>
-<div class="staff-card"><img src="image/profile.jpg"><div><b>Chiranjiwi Sir</b><br>Project Staff<br>chiranjiwi@iitm.ac.in</div></div>
-<div class="staff-card"><img src="image/profile.jpg"><div><b>Amol Sir</b><br>Project Staff<br>amol@iitm.ac.in</div></div>
-<div class="staff-card"><img src="image/profile.jpg"><div><b>Aditya Sir</b><br>Project Staff<br>aditya@iitm.ac.in</div></div>
-<div class="staff-card"><img src="image/profile.jpg"><div><b>Sharad Sir</b><br>Project Staff<br>sharad@iitm.ac.in</div></div>
-<div class="staff-card"><img src="image/profile.jpg"><div><b>Nikhil Sir</b><br>Project Staff<br>nikhil@iitm.ac.in</div></div>
+
+<div class="staff-card">
+<img src="image/profile.jpg">
+<div class="staff-info">
+<h4>Sunil Sir</h4>
+<p>Project Staff</p>
+<p>sunil@iitm.ac.in</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="image/profile.jpg">
+<div class="staff-info">
+<h4>Chiranjiwi Sir</h4>
+<p>Project Staff</p>
+<p>chiranjiwi@iitm.ac.in</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="image/profile.jpg">
+<div class="staff-info">
+<h4>Amol Sir</h4>
+<p>Project Staff</p>
+<p>amol@iitm.ac.in</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="image/profile.jpg">
+<div class="staff-info">
+<h4>Aditya Sir</h4>
+<p>Project Staff</p>
+<p>aditya@iitm.ac.in</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="image/profile.jpg">
+<div class="staff-info">
+<h4>Sharad Sir</h4>
+<p>Project Staff</p>
+<p>sharad@iitm.ac.in</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="image/profile.jpg">
+<div class="staff-info">
+<h4>Nikhil Sir</h4>
+<p>Project Staff</p>
+<p>nikhil@iitm.ac.in</p>
+</div>
+</div>
+
 </div>
 </section>
 
@@ -276,14 +368,12 @@ ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automa
 </footer>
 
 <!-- POPUPS -->
-<div id="raoAcademic" class="popup">Ph.D. – Physical Oceanography, Andhra University</div>
-<div id="raoResearch" class="popup">Air-Sea Interaction, Climate Modelling</div>
-
-<div id="padmaAcademic" class="popup">Ph.D. – Physics, Pune University</div>
-<div id="padmaResearch" class="popup">Aerosol-Cloud-Radiation interactions</div>
-
-<div id="subrataAcademic" class="popup">Ph.D. – Physics, NCU Taiwan</div>
-<div id="subrataResearch" class="popup">Radar & Lidar Remote Sensing</div>
+<div id="raoAcademic" class="popup">Ph.D – Physics</div>
+<div id="raoResearch" class="popup">Climate Modelling</div>
+<div id="padmaAcademic" class="popup">Ph.D – Physics</div>
+<div id="padmaResearch" class="popup">Aerosol Studies</div>
+<div id="subrataAcademic" class="popup">Ph.D – Physics</div>
+<div id="subrataResearch" class="popup">Radar Meteorology</div>
 
 <script>
 function togglePopup(event,id){
@@ -302,4 +392,3 @@ document.querySelectorAll('.popup').forEach(p=>p.style.display='none');
 
 </body>
 </html>
-
