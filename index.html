@@ -1,324 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IITM - ART Mesonet Mumbai</title>
-    
-    <style>
-        /* GLOBAL STYLES */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IITM - ART Mesonet Mumbai</title>
 
-        header {
-            background-color: #002147;
-            color: white;
-            padding: 20px 10%;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
 
-        /* STICKY NAVIGATION */
-        nav {
-            background-color: #004080;
-            padding: 12px 10%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+header {
+    background-color: #002147;
+    color: white;
+    padding: 20px 10%;
+    text-align: center;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+nav {
+    background-color: #004080;
+    padding: 12px 10%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
 
-        nav a:hover {
-            color: #ffcc00;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
 
-        section {
-            padding: 60px 10%;
-        }
+section { padding: 60px 10%; }
 
-        h2 {
-            color: #002147;
-            border-bottom: 3px solid #004080;
-            display: inline-block;
-            margin-bottom: 30px;
-        }
+h2 {
+    color: #002147;
+    border-bottom: 3px solid #004080;
+    display: inline-block;
+}
 
-        /* CARDS AND BOXES */
-        .box {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-        }
+.box, .profile {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
 
-        .profile {
-            display: flex;
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            align-items: flex-start;
-            position: relative;
-            transition: transform 0.2s;
-        }
+.profile {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
 
-        .profile:hover {
-            transform: translateY(-5px);
-        }
+.profile img {
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 30px;
+}
 
-        .profile img {
-            width: 160px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-right: 30px;
-            flex-shrink: 0;
-            border: 3px solid #eee;
-        }
+/* BUTTON */
+.btn {
+    margin-top: 10px;
+    padding: 10px 18px;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        /* BUTTONS */
-        .btn {
-            margin-top: 10px;
-            padding: 10px 18px;
-            background-color: #004080;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
+/* POPUP */
+.popup {
+    display: none;
+    position: absolute;
+    width: 320px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border-top: 4px solid #004080;
+    animation: fadeIn 0.2s ease;
+}
 
-        .btn:hover {
-            background-color: #0066cc;
-        }
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(-5px);}
+    to {opacity:1; transform: translateY(0);}
+}
 
-        /* POPUP STYLE */
-        .popup {
-            display: none;
-            position: absolute;
-            width: 320px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            z-index: 1001;
-            border-top: 4px solid #004080;
-        }
+/* RADAR IMAGE SIZE CONTROL */
+.radar-img {
+    width: 60%;      /* 🔥 change this to resize radar */
+    max-width: 500px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
 
-        .popup h4 {
-            margin-top: 0;
-            color: #004080;
-        }
-
-        /* RADAR SECTION */
-        .radar-container {
-            text-align: center;
-        }
-        
-        .radar-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-        footer {
-            background-color: #002147;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .profile img {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            section {
-                padding: 40px 5%;
-            }
-            .popup {
-                width: 90%;
-                left: 5% !important;
-            }
-        }
-    </style>
+/* MOBILE */
+@media (max-width: 768px) {
+    .profile { flex-direction: column; text-align: center; }
+    .profile img { margin-right: 0; margin-bottom: 20px; }
+    .popup { width: 90%; left: 5% !important; }
+    .radar-img { width: 90%; }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
-    <p>ART Mesonet Mumbai - Atmospheric Research & Technology</p>
+<h1>Indian Institute of Tropical Meteorology (IITM)</h1>
+<p>ART Mesonet Mumbai - Atmospheric Research & Technology</p>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#team">Team</a>
-    <a href="#project">Project</a>
-    <a href="#radar">Radar</a>
+<a href="#about">About</a>
+<a href="#team">Team</a>
+<a href="#project">Project</a>
+<a href="#radar">Radar</a>
 </nav>
 
 <section id="about">
-    <h2>About ART Mesonet Mumbai</h2>
-    <div class="box">
-        <p>The ART Mesonet Mumbai is a state-of-the-art <strong>high-resolution rainfall monitoring network</strong>. By deploying a dense grid of Automatic Rain Gauges (ARG) and Doppler X-Band Radar, we provide real-time urban weather monitoring to enhance flood preparedness and meteorological research for the Mumbai Metropolitan Region.</p>
-    </div>
+<h2>About ART Mesonet Mumbai</h2>
+<div class="box">
+<p>The ART Mesonet Mumbai is a high-resolution rainfall monitoring network providing real-time urban weather monitoring for Mumbai.</p>
+</div>
 </section>
 
 <section id="team">
-    <h2>Scientific Team</h2>
+<h2>Scientific Team</h2>
 
-    <div class="profile">
-        <img src="Images/Suryachandra.jpg" alt="Dr. Suryachandra A. Rao">
-        <div>
-            <h3>Director – Dr. Suryachandra A. Rao</h3>
-            <p><strong>Expertise:</strong> Climate Variability and Prediction</p>
-            <button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic Records</button>
-            <button class="btn" onclick="togglePopup(event,'raoResearch')">Research Interests</button>
-        </div>
-    </div>
+<div class="profile">
+<img src="images/Suryachandra.jpg">
+<div>
+<h3>Director – Dr. Suryachandra A. Rao</h3>
+<p><strong>Expertise:</strong> Climate Variability and Prediction</p>
+<button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic Records</button>
+<button class="btn" onclick="togglePopup(event,'raoResearch')">Research Interests</button>
+</div>
+</div>
 
-    <div class="profile">
-        <img src="Images/padma.png" alt="Dr. B. Padma Kumari">
-        <div>
-            <h3>Dr. (Smt.) B. Padma Kumari</h3>
-            <p><strong>Expertise:</strong> Aerosol-Cloud-Radiation interactions</p>
-            <button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic Records</button>
-            <button class="btn" onclick="togglePopup(event,'padmaResearch')">Research Interests</button>
-        </div>
-    </div>
+<div class="profile">
+<img src="images/padma.png">
+<div>
+<h3>Dr. B. Padma Kumari</h3>
+<p><strong>Expertise:</strong> Aerosol-Cloud-Radiation interactions</p>
+<button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic Records</button>
+<button class="btn" onclick="togglePopup(event,'padmaResearch')">Research Interests</button>
+</div>
+</div>
 
-    <div class="profile">
-        <img src="Images/subrata.jpg" alt="Dr. Subrata Kumar Das">
-        <div>
-            <h3>Dr. Subrata Kumar Das (Scientist)</h3>
-            <p><strong>Expertise:</strong> Mesoscale Meteorology, Doppler weather radar and lidar remote sensing</p>
-            <button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic Records</button>
-            <button class="btn" onclick="togglePopup(event,'subrataResearch')">Research Interests</button>
-        </div>
-    </div>
-</section>
+<div class="profile">
+<img src="images/subrata.jpg">
+<div>
+<h3>Dr. Subrata Kumar Das</h3>
+<p><strong>Expertise:</strong> Doppler weather radar</p>
+<button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic Records</button>
+<button class="btn" onclick="togglePopup(event,'subrataResearch')">Research Interests</button>
+</div>
+</div>
 
-<section id="project">
-    <h2>Project Infrastructure</h2>
-    <div class="box">
-        <p>Our network consists of the following critical components:</p>
-        <ul>
-            <li><strong>Automatic Rain Gauges (Tipping Bucket):</strong> High-precision measurement of rainfall intensity.</li>
-            <li><strong>Doppler X-Band Radar:</strong> Advanced spatial tracking of storm cells.</li>
-            <li><strong>Real-Time Data Logging:</strong> Continuous data transmission for immediate analysis.</li>
-        </ul>
-        <br>
-        <a href="https://mumbairain.tropmet.res.in/" target="_blank">
-            <button class="btn" style="background-color: #28a745;">View Live Rainfall Data</button>
-        </a>
-    </div>
 </section>
 
 <section id="radar">
-    <h2>Doppler X-Band Radar</h2>
-    <div class="box radar-container">
-        <p>Real-time reflectivity and velocity scans for Mumbai region.</p>
-        <img src="Images/radar_image.jpg" class="radar-img" alt="X-Band Radar Visualization">
-    </div>
+<h2>Doppler X-Band Radar</h2>
+<div class="box" style="text-align:center;">
+<p>Real-time reflectivity scans for Mumbai.</p>
+<img src="images/radar_image.jpg" class="radar-img">
+</div>
 </section>
 
 <footer>
-    <p>© 2026 IITM | Atmospheric Research & Technology (ART) Mesonet Mumbai</p>
-    <p style="font-size: 12px; opacity: 0.7;">Ministry of Earth Sciences, Government of India</p>
+<p>© 2026 IITM | ART Mesonet Mumbai</p>
 </footer>
 
-<div id="raoAcademic" class="popup">
-    <h4>Academic Records</h4>
-    • B.Sc – 1988<br>• M.Sc – 1991<br>• M.Tech – 1994<br>• Ph.D – 1998
-</div>
-
-<div id="raoResearch" class="popup">
-    <h4>Research Interests</h4>
-    • Air-Sea interactions<br>• Climate Modelling<br>• Ocean Dynamics
-</div>
-
-<div id="padmaAcademic" class="popup">
-    <h4>Academic Records</h4>
-    • Ph.D – 2005<br>• M.Tech – 1999<br>• M.Sc – 1995
-</div>
-
-<div id="padmaResearch" class="popup">
-    <h4>Research Interests</h4>
-    • Aerosol-Cloud interactions<br>• Remote sensing
-</div>
-
-<div id="subrataAcademic" class="popup">
-    <h4>Academic Records</h4>
-    • Ph.D – 2011<br>• M.Sc – 2002
-</div>
-
-<div id="subrataResearch" class="popup">
-    <h4>Research Interests</h4>
-    • Lidar Remote Sensing<br>• Radar Meteorology
-</div>
+<!-- POPUPS -->
+<div id="raoAcademic" class="popup">B.Sc – 1988<br>M.Sc – 1991<br>M.Tech – 1994<br>Ph.D – 1998</div>
+<div id="raoResearch" class="popup">Air-Sea interactions<br>Climate Modelling</div>
+<div id="padmaAcademic" class="popup">Ph.D – 2005<br>M.Tech – 1999</div>
+<div id="padmaResearch" class="popup">Aerosol-Cloud interactions</div>
+<div id="subrataAcademic" class="popup">Ph.D – 2011<br>M.Sc – 2002</div>
+<div id="subrataResearch" class="popup">Radar Meteorology</div>
 
 <script>
 function togglePopup(event, id) {
-    // Prevent the click from closing the popup immediately via the document listener
     event.stopPropagation();
 
-    // Close any currently open popups
-    var popups = document.getElementsByClassName("popup");
-    for (var i = 0; i < popups.length; i++) {
-        popups[i].style.display = "none";
-    }
+    document.querySelectorAll('.popup').forEach(p => p.style.display='none');
 
-    // Show the targeted popup
-    var popup = document.getElementById(id);
+    const popup = document.getElementById(id);
     popup.style.display = "block";
 
-    // Position the popup relative to the button
-    var rect = event.target.getBoundingClientRect();
-    var popupWidth = 320; 
-    
-    // Check if popup would go off-screen to the right
-    let leftPos = rect.left + window.scrollX;
-    if (leftPos + popupWidth > window.innerWidth) {
-        leftPos = window.innerWidth - popupWidth - 20;
-    }
-
+    const rect = event.target.getBoundingClientRect();
     popup.style.top = rect.bottom + window.scrollY + 8 + "px";
-    popup.style.left = leftPos + "px";
+    popup.style.left = rect.left + window.scrollX + "px";
 }
 
-// Close popups when clicking anywhere else on the page
-document.addEventListener("click", function() {
-    var popups = document.getElementsByClassName("popup");
-    for (var i = 0; i < popups.length; i++) {
-        popups[i].style.display = "none";
-    }
+document.addEventListener("click", () => {
+    document.querySelectorAll('.popup').forEach(p => p.style.display='none');
 });
 </script>
 
