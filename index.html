@@ -25,12 +25,13 @@ header {
 .header-container {
     display: flex;
     align-items: center;
-    gap: 18px;
+    justify-content: space-between;
+    /* gap: 18px; */
 }
 
 .logo {
     width: 600px; /* Bigger logo */
-    align-items: right;
+    align-items: extrem right;
     height: auto;
 }
 
@@ -213,14 +214,14 @@ footer {
 <!-- HEADER -->
 <header>
     <div class="header-container">
-        <img src="image/logo.gif" alt="IITM Logo" class="logo">
         <div class="header-text">
             <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
-            <h1>भारतीय उष्णदेशीय मौसम विज्ञान संस्थान (आईआईटीएम)</h1>
             <p>ART Mesonet Mumbai</p>
         </div>
+        <img src="image/logo.gif" alt="IITM Logo" class="logo">
     </div>
 </header>
+
 
 <!-- NAV -->
 <nav>
@@ -394,6 +395,7 @@ document.querySelectorAll('.popup').forEach(p=>p.style.display='none');
 
 </body>
 </html>
+
 
 
 
