@@ -1,415 +1,750 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IITM - ART Mesonet Mumbai</title>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IITM - ART Mesonet Mumbai</title>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+* { 
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+html, body { height: 100%; margin: 0; }
 
-<style>
-/* GLOBAL */
 body {
-    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9;
+    background: linear-gradient(to bottom, #f8fbff 0%, #e3f2fd 50%, #d1e7f7 100%);
+    background-attachment: fixed;
     color: #333;
-    line-height: 1.5;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* HEADER */
 header {
-    background-color: #002147;
+    background: linear-gradient(135deg, #002147 0%, #003a7a 100%);
     color: white;
-    padding: 15px 10%;
+    padding: 25px 5%;
+    box-shadow: 0 4px 12px rgba(0,33,71,0.15);
 }
 
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /* gap: 18px; */
+    /* justify-content: space-between; */
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
 }
 
 .logo {
-    width: 900px; /* Bigger logo */
-    align-items: extrem right;
-    height: auto;
+    width: 260px;
+    height: 260px;
+    min-width: 260px;
+    min-height: 260px;
+    flex: 0 0 100px;
+    background: rgba(255,255,255,0.1);
+    /* border-radius: 10px; */
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden;  */
 }
 
+.logo img {
+    width: 160%;
+    height: 160%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
 .header-text h1 {
-    margin: 0;
-    font-size: 43px;
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.header-text h1:nth-child(2) {
+    font-size: 24px;
+    font-weight: 500;
+    opacity: 0.95;
+    margin: 5px 0;
 }
 
 .header-text p {
-    margin: 2px 0 0;
-    font-size: 19px;
-    opacity: 0.9;
+    margin: 10px 0 0;
+    font-size: 16px;
+    opacity: 0.85;
 }
 
-/* NAVBAR */
 nav {
     background-color: #004080;
-    padding: 10px 10%;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+    padding: 14px 20px;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
 }
 
 nav a:hover {
+    background-color: rgba(255,204,0,0.1);
+    border-bottom-color: #ffcc00;
     color: #ffcc00;
 }
 
-/* SECTIONS */
 section {
-    padding: 30px 10%; /* reduced spacing */
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h2 {
     color: #002147;
-    border-bottom: 2px solid #004080;
+    font-size: 28px;
+    font-weight: 700;
+    border-bottom: 3px solid #004080;
     display: inline-block;
-    margin-bottom: 15px;
+    margin: 0 0 25px 0;
+    padding-bottom: 8px;
 }
 
-/* BOX */
+h3 {
+    color: #003a7a;
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+}
+
+h4 {
+    color: #004080;
+    margin: 15px 0 8px 0;
+}
+
 .box {
     background: white;
-    padding: 18px;
-    border-radius: 6px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* PROFILE CARDS */
+.box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
 .profile {
     display: flex;
     background: white;
-    padding: 18px;
-    margin-bottom: 18px;
-    border-radius: 6px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    gap: 25px;
+    border-left: 4px solid #004080;
+}
+
+.profile:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .profile img {
     width: 140px;
-    height: 170px;
+    height: 140px;
     object-fit: cover;
-    border-radius: 6px;
-    margin-right: 20px;
-    border: 2px solid #eee;
+    border-radius: 8px;
+    border: 3px solid #e0e7ff;
+    flex-shrink: 0;
+    background: #f0f0f0;
 }
 
-/* BUTTON */
+.profile div {
+    flex: 1;
+}
+
+.profile h3 {
+    margin-top: 0;
+}
+
 .btn {
     margin-top: 8px;
-    padding: 8px 14px;
+    margin-right: 8px;
+    padding: 10px 16px;
     background-color: #004080;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .btn:hover {
     background-color: #0066cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,64,128,0.3);
 }
 
-/* POPUP */
-.popup {
+.modal-overlay {
     display: none;
-    position: absolute;
-    width: 300px;
-    background: white;
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    z-index: 1001;
-    border-top: 4px solid #004080;
-}
-
-/* PROJECT STAFF */
-.staff-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.staff-card {
-    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
     align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.popup {
     background: white;
-    padding: 12px;
-    border-radius: 6px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border-top: 5px solid #004080;
+    max-width: 550px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease;
 }
 
-.staff-card img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 12px;
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-.staff-info h4 {
-    margin: 0;
-    font-size: 15px;
+.popup h3 {
+    margin-top: 0;
     color: #002147;
 }
 
-.staff-info p {
-    margin: 2px 0;
-    font-size: 13px;
+.popup ul {
+    margin: 10px 0;
+    padding-left: 20px;
 }
 
-/* RADAR */
+.popup li {
+    margin: 8px 0;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.staff-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.staff-card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-left: 3px solid #004080;
+}
+
+.staff-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.staff-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #e0e7ff;
+    background: #f0f0f0;
+}
+
+.staff-info {
+    flex: 1;
+}
+
+.staff-info h4 {
+    margin: 0 0 4px 0;
+    color: #002147;
+    font-size: 15px;
+}
+
+.staff-info p {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+.staff-info a {
+    color: #004080;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.staff-info a:hover {
+    text-decoration: underline;
+    color: #0066cc;
+}
+
+.staff-details-toggle {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detail-btn {
+    padding: 5px 10px;
+    background-color: #e0e7ff;
+    color: #004080;
+    border: 1px solid #004080;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.detail-btn:hover {
+    background-color: #004080;
+    color: white;
+}
+
 .radar-container {
     text-align: center;
 }
 
 .radar-img {
-    width: 480px;
-    max-width: 100%;
-    border-radius: 6px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background: #f0f0f0;
+    padding: 20px;
 }
 
-/* FOOTER */
 footer {
-    background-color: #002147;
+    background: linear-gradient(135deg, #002147 0%, #003a7a 100%);
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 25px;
+    padding: 30px;
+    margin-top: 40px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile img {
-        margin-bottom: 10px;
-    }
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; text-align: center; }
+    .profile { flex-direction: column; text-align: center; border-left: none; border-top: 4px solid #004080; }
+    .staff-container { grid-template-columns: 1fr; }
+    nav { flex-direction: column; }
+    nav a { padding: 12px; text-align: center; }
 }
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-<header>
-    <div class="header-container">
-        <div class="header-text">
-            <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
-            <h1>भारतीय उष्णदेशीय मौसम विज्ञान संस्थान (आईआईटीएम)</h1>
-            <p>ART Mesonet Mumbai</p>
-        </div>
-        <img src="image/logo.gif" alt="IITM Logo" class="logo">
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body>
+  <header>
+   <div class="header-container">
+    <div class="logo">
+     <img src="image/logo.gif">
     </div>
-</header>
-
-
-<!-- NAV -->
-<nav>
-<a href="#about">About</a>
-<a href="#team">Team</a>
-<a href="#project">Project</a>
-<a href="#project-staff">Project Staff</a>
-<a href="#radar">Radar</a>
-</nav>
-
-<!-- ABOUT -->
-<section id="about">
-<h2>About ART Mesonet Mumbai</h2>
-<div class="box">
-<p>
-ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automatic Rain Gauges and Doppler X-Band Radar to support flood forecasting and urban weather monitoring.
-</p>
-</div>
-</section>
-
-<!-- TEAM -->
-<section id="team">
-<h2>Scientific Team</h2>
-
-<div class="profile">
-<img src="image/Suryachandra.jpg">
-<div>
-<h3>Director – Dr. Suryachandra A. Rao</h3>
-<p><strong>Expertise:</strong> Climate Variability and Prediction</p>
-<button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic</button>
-<button class="btn" onclick="togglePopup(event,'raoResearch')">Research</button>
-</div>
+    <div class="header-text">
+     <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
+     <h1>भारतीय उष्णदेशीय मौसम विज्ञान संस्थान (आईआईटीएम)</h1>
+     <p>ART Mesonet Mumbai</p>
+    </div>
+   </div>
+  </header>
+  <nav><a href="#about">About</a> <a href="#team">Team</a> <a href="#project">Project</a> <a href="#project-staff">Project Staff</a> <a href="#radar">Radar</a>
+  </nav>
+  <section id="about">
+   <h2>About ART Mesonet Mumbai</h2>
+   <div class="box">
+    <p>ART Mesonet Mumbai is a high-resolution rainfall monitoring network using Automatic Rain Gauges and Doppler X-Band Radar to support flood forecasting and urban weather monitoring.</p>
+   <!-- </div><div class="logo"> -->
+    <!-- </div><div class="logo">🌦️</div> -->
 </div>
 
-<div class="profile">
-<img src="image/padma.png">
-<div>
-<h3>Dr. (Smt.) B. Padma Kumari</h3>
-<p><strong>Expertise:</strong> Aerosol–Cloud–Radiation</p>
-<button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic</button>
-<button class="btn" onclick="togglePopup(event,'padmaResearch')">Research</button>
-</div>
-</div>
-
-<div class="profile">
-<img src="image/subrata.jpg">
-<div>
-<h3>Dr. Subrata Kumar Das</h3>
-<p><strong>Expertise:</strong> Radar & Lidar Remote Sensing</p>
-<button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic</button>
-<button class="btn" onclick="togglePopup(event,'subrataResearch')">Research</button>
-</div>
-</div>
-
-</section>
-
-<!-- PROJECT -->
-<section id="project">
-<h2>Project Infrastructure</h2>
-<div class="box">
-<ul>
-<li><strong>Automatic Rain Gauges:</strong> Real-time rainfall measurement</li>
-<li><strong>Doppler X-Band Radar:</strong> High-resolution storm tracking</li>
-<li><strong>Real-Time Data Logging:</strong> Continuous monitoring</li>
-</ul>
-<br>
-<a href="https://mumbairain.tropmet.res.in/" target="_blank">
-<button class="btn" style="background:#28a745;">View Live Rainfall Data</button>
-</a>
-</div>
-</section>
-
-<!-- PROJECT STAFF -->
-<section id="project-staff">
-<h2>Project Staff</h2>
-
-<div class="staff-container">
-
-<div class="staff-card">
-<img src="image/profile.jpg">
-<div class="staff-info">
-<h4>Sunil Sir</h4>
-<p>Project Staff</p>
-<p>sunil@iitm.ac.in</p>
-</div>
-</div>
-
-<div class="staff-card">
-<img src="image/profile.jpg">
-<div class="staff-info">
-<h4>Chiranjiwi Sir</h4>
-<p>Project Staff</p>
-<p>chiranjiwi@iitm.ac.in</p>
-</div>
-</div>
-
-<div class="staff-card">
-<img src="image/profile.jpg">
-<div class="staff-info">
-<h4>Amol Sir</h4>
-<p>Project Staff</p>
-<p>amol@iitm.ac.in</p>
-</div>
-</div>
-
-<div class="staff-card">
-<img src="image/profile.jpg">
-<div class="staff-info">
-<h4>Aditya Sir</h4>
-<p>Project Staff</p>
-<p>aditya@iitm.ac.in</p>
-</div>
-</div>
-
-<div class="staff-card">
-<img src="image/profile.jpg">
-<div class="staff-info">
-<h4>Sharad Sir</h4>
-<p>Project Staff</p>
-<p>sharad@iitm.ac.in</p>
-</div>
-</div>
-
-<div class="staff-card">
-<img src="image/profile.jpg">
-<div class="staff-info">
-<h4>Nikhil Sir</h4>
-<p>Project Staff</p>
-<p>nikhil@iitm.ac.in</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- RADAR -->
-<section id="radar">
-<h2>Doppler X-Band Radar</h2>
-<div class="box radar-container">
-<p>Real-time radar visualization</p>
-<img src="image/radar_image.jpg" class="radar-img">
-</div>
-</section>
-
-<footer>
-<p>© 2026 IITM | ART Mesonet Mumbai</p>
-</footer>
-
-<!-- POPUPS -->
-<div id="raoAcademic" class="popup">Ph.D – Physics</div>
-<div id="raoResearch" class="popup">Climate Modelling</div>
-<div id="padmaAcademic" class="popup">Ph.D – Physics</div>
-<div id="padmaResearch" class="popup">Aerosol Studies</div>
-<div id="subrataAcademic" class="popup">Ph.D – Physics</div>
-<div id="subrataResearch" class="popup">Radar Meteorology</div>
-
-<script>
-function togglePopup(event,id){
-event.stopPropagation();
-document.querySelectorAll('.popup').forEach(p=>p.style.display='none');
-let popup=document.getElementById(id);
-popup.style.display='block';
-let rect=event.target.getBoundingClientRect();
-popup.style.top=rect.bottom+window.scrollY+5+'px';
-popup.style.left=rect.left+window.scrollX+'px';
+  </section>
+  <section id="team">
+   <h2>Scientific Team</h2>
+   <div class="profile"><img src="image/suryachandra.jpg"">
+    <div>
+     <h3>Director – Dr. Suryachandra A. Rao</h3>
+     <p><strong>Expertise:</strong> Mesoscale Meteorology, Doppler weather radar and lidar remote sensing</p><button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'raoResearch')">Research</button>
+    </div>
+   </div>
+   <div class="profile"><img src="image/padma.png">
+    <div>
+     <h3>Dr. (Smt.) B. Padma Kumari</h3>
+     <p><strong>Expertise:</strong> Aerosol–Cloud–Radiation</p><button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'padmaResearch')">Research</button>
+    </div>
+   </div>
+   <div class="profile"><img src="image/subrata.jpg">
+    <div>
+     <h3>Dr. Subrata Kumar Das</h3>
+     <p><strong>Expertise:</strong> Radar &amp; Lidar Remote Sensing</p><button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'subrataResearch')">Research</button>
+    </div>
+   </div>
+  </section>
+  <section id="project">
+   <h2>Projects</h2>
+   <h3>ART Mesonet Mumbai</h3>
+   <p>The ART Mesonet Mumbai project is focused on strengthening high-resolution weather observation and monitoring over the Mumbai metropolitan region.</p>
+   <h4>Key Components</h4>
+   <ul>
+    <li>Automatic Rain Gauge (ARG) network for real-time rainfall monitoring</li>
+    <li>Doppler X-Band Radar for high-resolution precipitation and storm analysis</li>
+   </ul>
+   <h4>Objectives</h4>
+   <ul>
+    <li>Improved monitoring of extreme rainfall events</li>
+    <li>Support for urban flood forecasting and early warning</li>
+    <li>Enhanced understanding of mesoscale weather systems</li>
+   </ul>
+  </section>
+  <section id="project-staff">
+   <h2>Project Staff</h2>
+   <div class="staff-container">
+    <div class="staff-card"><img src="image/profile.jpg">
+     <div class="staff-info">
+      <h4>Dr. Sunil Khadgarai</h4>
+      <p>Project Scientist-III</p><a href="mailto:sunil.khadgarai@tropmet.res.in">sunil.khadgarai@tropmet.res.in</a>
+      <div class="staff-details-toggle">
+       <button class="detail-btn" onclick="togglePopup(event,'sunilExpertise')">🔬 Expertise</button> <button class="detail-btn" onclick="togglePopup(event,'sunilAcademic')">📚 Academic Records</button> <button class="detail-btn" onclick="togglePopup(event,'sunilResearch')">🎓 Research Interest</button>
+      </div>
+     </div>
+    </div>
+    <div class="staff-card"><img src="image/profile.jpg">
+     <div class="staff-info">
+      <h4>Dr. Chiranjeevi Guttula</h4>
+      <p>Project Scientist-I</p><a href="mailto:chiranjeevi.guttula@tropmet.res.in">chiranjeevi.guttula@tropmet.res.in</a>
+      <div class="staff-details-toggle">
+       <button class="detail-btn" onclick="togglePopup(event,'chiranExpertise')">🔬 Expertise</button> <button class="detail-btn" onclick="togglePopup(event,'chiranAcademic')">📚 Academic Records</button> <button class="detail-btn" onclick="togglePopup(event,'chiranResearch')">🎓 Research Interest</button>
+      </div>
+     </div>
+    </div>
+    <div class="staff-card"><img src="image/profile.jpg">
+     <div class="staff-info">
+      <h4>Dr. Aditya Jaiswal</h4>
+      <p>Project Scientist-I</p><a href="mailto:aditya.jaiswal@tropmet.res.in">aditya.jaiswal@tropmet.res.in</a>
+      <div class="staff-details-toggle">
+       <button class="detail-btn" onclick="togglePopup(event,'adityaExpertise')">🔬 Expertise</button> <button class="detail-btn" onclick="togglePopup(event,'adityaAcademic')">📚 Academic Records</button> <button class="detail-btn" onclick="togglePopup(event,'adityaResearch')">🎓 Research Interest</button>
+      </div>
+     </div>
+    </div>
+    <div class="staff-card"><img src="image/profile.jpg">
+     <div class="staff-info">
+      <h4>Mr. Amol A. Dhole</h4>
+      <p>Project Scientist-I</p><a href="mailto:amol.dhole@tropmet.res.in">amol.dhole@tropmet.res.in</a>
+      <div class="staff-details-toggle">
+       <button class="detail-btn" onclick="togglePopup(event,'amolExpertise')">🔬 Expertise</button> <button class="detail-btn" onclick="togglePopup(event,'amolAcademic')">📚 Academic Records</button> <button class="detail-btn" onclick="togglePopup(event,'amolResearch')">🎓 Research Interest</button>
+      </div>
+     </div>
+    </div>
+    <div class="staff-card"><img src="image/SharadD.jpg">
+     <div class="staff-info">
+      <h4>Mr. Sharad A. Dhole</h4>
+      <p>Project Associate-II</p><a href="mailto:sharad.dhole@tropmet.res.in">sharad.dhole@tropmet.res.in</a>
+      <div class="staff-details-toggle">
+       <button class="detail-btn" onclick="togglePopup(event,'sharadExpertise')">🔬 Expertise</button> <button class="detail-btn" onclick="togglePopup(event,'sharadAcademic')">📚 Academic Records</button> <button class="detail-btn" onclick="togglePopup(event,'sharadResearch')">🎓 Research Interest</button>
+      </div>
+     </div>
+    </div>
+    <div class="staff-card"><img src="image/NikhilK.jpg">
+     <div class="staff-info">
+      <h4>Mr. Nikhil K. Kavate</h4>
+      <p>Project Associate-I</p><a href="mailto:nikhil.kavate@tropmet.res.in">nikhil.kavate@tropmet.res.in</a>
+      <div class="staff-details-toggle">
+       <button class="detail-btn" onclick="togglePopup(event,'nikhilExpertise')">🔬 Expertise</button> <button class="detail-btn" onclick="togglePopup(event,'nikhilAcademic')">📚 Academic Records</button> <button class="detail-btn" onclick="togglePopup(event,'nikhilResearch')">🎓 Research Interest</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section id="radar">
+   <h2>Doppler X-Band Radar</h2>
+   <div class="box radar-container">
+    <p>Real-time radar visualization for weather monitoring and analysis</p>
+    <div class="radar-img">
+     📡 Radar Image Placeholder
+    </div>
+   </div>
+  </section>
+  <footer>
+   <p>© 2026 IITM | ART Mesonet Mumbai</p>
+   <p>Indian Institute of Tropical Meteorology, Pune</p>
+  </footer><!-- POPUPS - Hidden until clicked -->
+  <div id="raoAcademic" style="display:none;">
+   <h3>Academic Background</h3>
+   <ul>
+    <li>Ph.D. in Atmospheric Science</li>
+    <li>M.Tech in Meteorology</li>
+    <li>B.Tech in Physics</li>
+   </ul>
+  </div>
+  <div id="raoResearch" style="display:none;">
+   <h3>Research Interests</h3>
+   <ul>
+    <li>Mesoscale weather systems</li>
+    <li>Radar remote sensing</li>
+    <li>Monsoon meteorology</li>
+   </ul>
+  </div>
+  <div id="padmaAcademic" style="display:none;">
+   <h3>Academic Background</h3>
+   <ul>
+    <li>Ph.D. in Atmospheric Physics</li>
+    <li>M.Sc. in Physics</li>
+    <li>B.Sc. in Physics</li>
+   </ul>
+  </div>
+  <div id="padmaResearch" style="display:none;">
+   <h3>Research Interests</h3>
+   <ul>
+    <li>Aerosol-cloud interactions</li>
+    <li>Radiation transfer</li>
+    <li>Climate impact studies</li>
+   </ul>
+  </div>
+  <div id="subrataAcademic" style="display:none;">
+   <h3>Academic Background</h3>
+   <ul>
+    <li>Ph.D. in Remote Sensing</li>
+    <li>M.Tech in Atmospheric Science</li>
+    <li>B.Tech in Physics</li>
+   </ul>
+  </div>
+  <div id="subrataResearch" style="display:none;">
+   <h3>Research Interests</h3>
+   <ul>
+    <li>Radar meteorology</li>
+    <li>Cloud dynamics</li>
+    <li>Precipitation analysis</li>
+   </ul>
+  </div><!-- Sunil Khadgarai -->
+  <div id="sunilExpertise" style="display:none;">
+   <h3>Expertise</h3>
+   <ul>
+    <li>Weather Instruments</li>
+    <li>Rainfall Monitoring Systems</li>
+    <li>Meteorological Networks</li>
+   </ul>
+  </div>
+  <div id="sunilAcademic" style="display:none;">
+   <h3>Academic Records</h3>
+   <ul>
+    <li>B.Tech in Physics</li>
+    <li>M.Tech in Atmospheric Science</li>
+    <li>Ph.D. in Meteorology</li>
+   </ul>
+  </div>
+  <div id="sunilResearch" style="display:none;">
+   <h3>Research Interest</h3>
+   <ul>
+    <li>Rainfall Monitoring</li>
+    <li>Flood Forecasting</li>
+    <li>Urban Weather Systems</li>
+   </ul>
+  </div><!-- Chiranjeevi Guttula -->
+  <div id="chiranExpertise" style="display:none;">
+   <h3>Expertise</h3>
+   <ul>
+    <li>Radar Meteorology</li>
+    <li>Middle Atmosphere Dynamics</li>
+    <li>Atmospheric Remote Sensing</li>
+   </ul>
+  </div>
+  <div id="chiranAcademic" style="display:none;">
+   <h3>Academic Records</h3>
+   <ul>
+    <li>B.Sc. (Hons.) Physics</li>
+    <li>M.Sc. Physics</li>
+    <li>Ph.D. Physics (Aryabhatta Research Institute)</li>
+   </ul>
+  </div>
+  <div id="chiranResearch" style="display:none;">
+   <h3>Research Interest</h3>
+   <ul>
+    <li>Mesoscale Meteorology</li>
+    <li>Urban Meteorology</li>
+    <li>Atmospheric Turbulence</li>
+   </ul>
+  </div><!-- Aditya Jaiswal -->
+  <div id="adityaExpertise" style="display:none;">
+   <h3>Expertise</h3>
+   <ul>
+    <li>Atmospheric Remote Sensing</li>
+    <li>Radar Data Processing</li>
+    <li>Weather Analysis</li>
+   </ul>
+  </div>
+  <div id="adityaAcademic" style="display:none;">
+   <h3>Academic Records</h3>
+   <ul>
+    <li>B.Tech in Physics</li>
+    <li>M.Tech in Atmospheric Science</li>
+    <li>Ph.D. in Remote Sensing</li>
+   </ul>
+  </div>
+  <div id="adityaResearch" style="display:none;">
+   <h3>Research Interest</h3>
+   <ul>
+    <li>Precipitation Measurement</li>
+    <li>Storm Dynamics</li>
+    <li>Climate Variability</li>
+   </ul>
+  </div><!-- Amol Dhole -->
+  <div id="amolExpertise" style="display:none;">
+   <h3>Expertise</h3>
+   <ul>
+    <li>Meteorological Instruments</li>
+    <li>Data Acquisition Systems</li>
+    <li>Weather Monitoring</li>
+   </ul>
+  </div>
+  <div id="amolAcademic" style="display:none;">
+   <h3>Academic Records</h3>
+   <ul>
+    <li>B.Sc. Physics</li>
+    <li>M.Sc. Physics</li>
+    <li>Diploma in Electronics</li>
+   </ul>
+  </div>
+  <div id="amolResearch" style="display:none;">
+   <h3>Research Interest</h3>
+   <ul>
+    <li>Instrumentation Development</li>
+    <li>Real-time Weather Data</li>
+    <li>Network Maintenance</li>
+   </ul>
+  </div><!-- Sharad Dhole -->
+  <div id="sharadExpertise" style="display:none;">
+   <h3>Expertise</h3>
+   <ul>
+    <li>Technical Support</li>
+    <li>System Operations</li>
+    <li>Data Management</li>
+   </ul>
+  </div>
+  <div id="sharadAcademic" style="display:none;">
+   <h3>Academic Records</h3>
+   <ul>
+    <li>B.Sc. Science</li>
+    <li>Certification in IT Systems</li>
+    <li>Technical Training Program</li>
+   </ul>
+  </div>
+  <div id="sharadResearch" style="display:none;">
+   <h3>Research Interest</h3>
+   <ul>
+    <li>System Optimization</li>
+    <li>Data Quality Control</li>
+    <li>Network Administration</li>
+   </ul>
+  </div><!-- Nikhil Kavate -->
+  <div id="nikhilExpertise" style="display:none;">
+   <h3>Expertise</h3>
+   <ul>
+    <li>System Administration</li>
+    <li>Technical Operations</li>
+    <li>Equipment Maintenance</li>
+   </ul>
+  </div>
+  <div id="nikhilAcademic" style="display:none;">
+   <h3>Academic Records</h3>
+   <ul>
+    <li>B.Sc. Science</li>
+    <li>Technical Certification</li>
+    <li>Professional Training</li>
+   </ul>
+  </div>
+  <div id="nikhilResearch" style="display:none;">
+   <h3>Research Interest</h3>
+   <ul>
+    <li>Weather Monitoring Systems</li>
+    <li>Data Collection Methods</li>
+    <li>Technical Innovation</li>
+   </ul>
+  </div><!-- MODAL OVERLAY -->
+  <div id="modalOverlay" class="modal-overlay"></div>
+  <script>
+function togglePopup(event, id) {
+    event.preventDefault();
+    const overlay = document.getElementById('modalOverlay');
+    const popup = document.getElementById(id);
+    
+    if (popup) {
+        const content = popup.innerHTML;
+        overlay.classList.add('active');
+        overlay.innerHTML = `
+            <div class="popup">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                ${content}
+            </div>
+        `;
+    }
 }
-document.addEventListener('click',()=> {
-document.querySelectorAll('.popup').forEach(p=>p.style.display='none');
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
 });
-</script>
 
-</body>
+document.addEventListener('DOMContentLoaded', function() {
+    lucide.createIcons();
+});
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ef4906f677446aa',t:'MTc3NjY5MjQ2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
