@@ -3,8 +3,8 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IITM - ART Mesonet Mumbai</title>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <title>IITM - ART MESONET Mumbai</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script> -->
   <style>
 * { 
   box-sizing: border-box;
@@ -361,9 +361,10 @@ h4 {
     width: 100%;
     max-width: 600px;
     border-radius: 8px;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     background: #f0f0f0;
     padding: 20px;
+    text-align: center;
 }
 
 footer {
@@ -414,7 +415,7 @@ footer {
   </section>
   <section id="team">
    <h2>Scientific Team</h2>
-   <div class="profile"><img src="image/Suryachandra.jpg"">
+   <div class="profile"><img src="image/suryachandra.jpg"">
     <div>
      <h3>Director – Dr. Suryachandra A. Rao</h3>
      <p><strong>Expertise:</strong> Mesoscale Meteorology, Doppler weather radar and lidar remote sensing</p><button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'raoResearch')">Research</button>
@@ -470,7 +471,7 @@ footer {
       </div>
      </div>
     </div>
-    <div class="staff-card"><img src="image/profile.jpg">
+    <div class="staff-card"><img src="image/AdityaJ.jpg">
      <div class="staff-info">
       <h4>Dr. Aditya Jaiswal</h4>
       <p>Project Scientist-I</p><a href="mailto:aditya.jaiswal@tropmet.res.in">aditya.jaiswal@tropmet.res.in</a>
@@ -513,7 +514,8 @@ footer {
    <div class="box radar-container">
     <p>Real-time radar visualization for weather monitoring and analysis</p>
     <div class="radar-img">
-     📡 Radar Image Placeholder
+     <!-- 📡 Radar Image Placeholder -->
+    <img src="image/radar_image.jpg">
     </div>
    </div>
   </section>
@@ -524,17 +526,21 @@ footer {
   <div id="raoAcademic" style="display:none;">
    <h3>Academic Background</h3>
    <ul>
-    <li>Ph.D. in Atmospheric Science</li>
-    <li>M.Tech in Meteorology</li>
-    <li>B.Tech in Physics</li>
+    <li>I. Ph.D. (Physical Oceanography) From Andhra University.</li>
+    <li>II. M.Tech. (Atmospheric Sciences) From Andhra University.</li>
+    <li>III. M.Sc. (Physical Oceanography) From Andhra University.</li>
+    <li>IV. B.Sc. (Physics) From Andhra University.</li>
    </ul>
   </div>
   <div id="raoResearch" style="display:none;">
    <h3>Research Interests</h3>
-   <ul>
-    <li>Mesoscale weather systems</li>
-    <li>Radar remote sensing</li>
-    <li>Monsoon meteorology</li>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
+    <li>Air-Sea interactions in the Indian Ocean</li>
+    <li>Coupled Ocean-Atmosphere Dynamics</li>
+    <li>Climate Variability and Prediction</li>
+    <li>Physical Oceanography</li>
+    <li>Coupled Climate Modelling</li>
+    <li>Ocean Modelling</li>
    </ul>
   </div>
   <div id="padmaAcademic" style="display:none;">
@@ -547,7 +553,7 @@ footer {
   </div>
   <div id="padmaResearch" style="display:none;">
    <h3>Research Interests</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Aerosol-cloud interactions</li>
     <li>Radiation transfer</li>
     <li>Climate impact studies</li>
@@ -563,7 +569,7 @@ footer {
   </div>
   <div id="subrataResearch" style="display:none;">
    <h3>Research Interests</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Radar meteorology</li>
     <li>Cloud dynamics</li>
     <li>Precipitation analysis</li>
@@ -571,7 +577,7 @@ footer {
   </div><!-- Sunil Khadgarai -->
   <div id="sunilExpertise" style="display:none;">
    <h3>Expertise</h3>
-   <ul>
+    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Weather Instruments</li>
     <li>Rainfall Monitoring Systems</li>
     <li>Meteorological Networks</li>
@@ -587,7 +593,7 @@ footer {
   </div>
   <div id="sunilResearch" style="display:none;">
    <h3>Research Interest</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Rainfall Monitoring</li>
     <li>Flood Forecasting</li>
     <li>Urban Weather Systems</li>
@@ -595,7 +601,7 @@ footer {
   </div><!-- Chiranjeevi Guttula -->
   <div id="chiranExpertise" style="display:none;">
    <h3>Expertise</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Radar Meteorology</li>
     <li>Middle Atmosphere Dynamics</li>
     <li>Atmospheric Remote Sensing</li>
@@ -611,7 +617,7 @@ footer {
   </div>
   <div id="chiranResearch" style="display:none;">
    <h3>Research Interest</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Mesoscale Meteorology</li>
     <li>Urban Meteorology</li>
     <li>Atmospheric Turbulence</li>
@@ -619,34 +625,35 @@ footer {
   </div><!-- Aditya Jaiswal -->
   <div id="adityaExpertise" style="display:none;">
    <h3>Expertise</h3>
-   <ul>
-    <li>Atmospheric Remote Sensing</li>
-    <li>Radar Data Processing</li>
-    <li>Weather Analysis</li>
+    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
+
+    <li>Radar Meteorology</li>
+    <li>Middle Atmosphere Dynamics</li>
+    <!-- <li>Weather Analysis</li> -->
    </ul>
   </div>
   <div id="adityaAcademic" style="display:none;">
    <h3>Academic Records</h3>
    <ul>
-    <li>B.Tech in Physics</li>
-    <li>M.Tech in Atmospheric Science</li>
-    <li>Ph.D. in Remote Sensing</li>
+    <li>I. Ph.D. (Physics), Aryabhatta Research Institute of Observational Sciences, Nainital (DDU Gorakhpur University).</li>
+    <li>II. M.Sc. (Physics), Indian Institute of Technology Guwahati.</li>
+    <li>III. B.Sc.(Hons.) Physics, Hans Raj College, University of Delhi.</li>
    </ul>
   </div>
   <div id="adityaResearch" style="display:none;">
    <h3>Research Interest</h3>
-   <ul>
-    <li>Precipitation Measurement</li>
-    <li>Storm Dynamics</li>
-    <li>Climate Variability</li>
+    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
+    <li>Mesoscale Meteorology</li>
+    <li>Urban Meteorology</li>
+    <li>Atmospheric Turbulence</li>
    </ul>
   </div><!-- Amol Dhole -->
   <div id="amolExpertise" style="display:none;">
    <h3>Expertise</h3>
-   <ul>
-    <li>Meteorological Instruments</li>
-    <li>Data Acquisition Systems</li>
-    <li>Weather Monitoring</li>
+    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
+    <li>Radar Meteorology</li>
+    <li>Middle Atmosphere Dynamics</li>
+    <!-- <li>Weather Monitoring</li> -->
    </ul>
   </div>
   <div id="amolAcademic" style="display:none;">
@@ -659,7 +666,7 @@ footer {
   </div>
   <div id="amolResearch" style="display:none;">
    <h3>Research Interest</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Instrumentation Development</li>
     <li>Real-time Weather Data</li>
     <li>Network Maintenance</li>
@@ -667,7 +674,7 @@ footer {
   </div><!-- Sharad Dhole -->
   <div id="sharadExpertise" style="display:none;">
    <h3>Expertise</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Technical Support</li>
     <li>System Operations</li>
     <li>Data Management</li>
@@ -683,7 +690,7 @@ footer {
   </div>
   <div id="sharadResearch" style="display:none;">
    <h3>Research Interest</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>System Optimization</li>
     <li>Data Quality Control</li>
     <li>Network Administration</li>
@@ -691,7 +698,7 @@ footer {
   </div><!-- Nikhil Kavate -->
   <div id="nikhilExpertise" style="display:none;">
    <h3>Expertise</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>System Administration</li>
     <li>Technical Operations</li>
     <li>Equipment Maintenance</li>
@@ -707,7 +714,7 @@ footer {
   </div>
   <div id="nikhilResearch" style="display:none;">
    <h3>Research Interest</h3>
-   <ul>
+   <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
     <li>Weather Monitoring Systems</li>
     <li>Data Collection Methods</li>
     <li>Technical Innovation</li>
