@@ -32,11 +32,27 @@ header {
     display: flex;
     align-items: center;
     /* justify-content: space-between; */
-    justify-content: flex-start;
-    max-width: 1200px;
+    /* justify-content: flex-start; */
+    max-width: 1400px;
     margin: 0 auto;
     gap: 30px;
 }
+
+.ministry-text{
+    margin-left: auto;
+    max-width: 320px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: white;
+    opacity: 0.9;
+    text-align: right;
+}
+
+.ministry-text p{
+    /* margin: 0 0 8px 0; */
+    flex: 1;
+}
+
 
 .logo {
     width: 260px;
@@ -392,13 +408,26 @@ footer {
  <body>
   <header>
    <div class="header-container">
+
+    <!-- Left Ministry Text
+    <div class="ministry-text">
+      <p>पृथ्वी विज्ञान मंत्रालय, भारत सरकार का एक स्वायत्त संस्थान</p>
+      <p>An Autonomous Institute of the Ministry of Earth Sciences, Govt. of India</p>
+    </div> -->
+    <!-- Logo -->
     <div class="logo">
      <img src="image/logo.gif">
     </div>
+    <!-- Main Title -->
     <div class="header-text">
      <h1>Indian Institute of Tropical Meteorology (IITM)</h1>
      <h1>भारतीय उष्णदेशीय मौसम विज्ञान संस्थान (आईआईटीएम)</h1>
      <p>ART Mesonet Mumbai</p>
+    </div>
+    <!-- Right Ministry Text -->
+    <div class="ministry-text">
+      <p>An Autonomous Institute of the Ministry of Earth Sciences, Govt. of India</p>
+      <p>पृथ्वी विज्ञान मंत्रालय, भारत सरकार का एक स्वायत्त संस्थान</p>
     </div>
    </div>
   </header>
@@ -418,19 +447,19 @@ footer {
    <div class="profile"><img src="image/Suryachandra.jpg"">
     <div>
      <h3>Director – Dr. Suryachandra A. Rao</h3>
-     <p><strong>Expertise:</strong> Mesoscale Meteorology, Doppler weather radar and lidar remote sensing</p><button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'raoResearch')">Research</button>
+     <p><strong>Expertise:</strong> Climate Variability & Prediction.</p><button class="btn" onclick="togglePopup(event,'raoAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'raoResearch')">Research</button>
     </div>
    </div>
    <div class="profile"><img src="image/padma.png">
     <div>
      <h3>Dr. (Smt.) B. Padma Kumari</h3>
-     <p><strong>Expertise:</strong> Aerosol–Cloud–Radiation</p><button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'padmaResearch')">Research</button>
+     <p><strong>Expertise:</strong> Aerosol–Cloud–Radiation.</p><button class="btn" onclick="togglePopup(event,'padmaAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'padmaResearch')">Research</button>
     </div>
    </div>
    <div class="profile"><img src="image/subrata.jpg">
     <div>
      <h3>Dr. Subrata Kumar Das</h3>
-     <p><strong>Expertise:</strong> Radar &amp; Lidar Remote Sensing</p><button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'subrataResearch')">Research</button>
+     <p><strong>Expertise:</strong> Mesoscale Meteorology, Doppler weather radar and lidar remote sensing.</p><button class="btn" onclick="togglePopup(event,'subrataAcademic')">Academic</button> <button class="btn" onclick="togglePopup(event,'subrataResearch')">Research</button>
     </div>
    </div>
   </section>
@@ -522,7 +551,10 @@ footer {
   <footer>
    <p>© 2026 IITM | ART Mesonet Mumbai</p>
    <p>Indian Institute of Tropical Meteorology, Pune</p>
-  </footer><!-- POPUPS - Hidden until clicked -->
+   <p style="margin-top:10px; font-size:14px; opacity:0.7;">
+   Website Developed by Mr. Nikhil K. Kavate</p>
+  </footer>
+  <!-- POPUPS - Hidden until clicked -->
   <div id="raoAcademic" style="display:none;">
    <h3>Academic Background</h3>
    <ul>
@@ -546,33 +578,37 @@ footer {
   <div id="padmaAcademic" style="display:none;">
    <h3>Academic Background</h3>
    <ul>
-    <li>Ph.D. in Atmospheric Physics</li>
-    <li>M.Sc. in Physics</li>
-    <li>B.Sc. in Physics</li>
+    <li>I. Ph.D. (Physics) From Pune University.</li>
+    <li>II. M.Tech. (Atmospheric Sciences) From Andhra University.</li>
+    <li>III. M.Sc. (Meteorology) From Andhra University.</li>
    </ul>
   </div>
   <div id="padmaResearch" style="display:none;">
    <h3>Research Interests</h3>
    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
-    <li>Aerosol-cloud interactions</li>
-    <li>Radiation transfer</li>
-    <li>Climate impact studies</li>
+    <li>Remote sensing of atmospheric aerosols, radiation and clouds</li>
+    <li>Aerosol-Cloud-Radiation interactions & radiative forcing</li>
+    <li>Cloud macro & micro physics</li>
+    <li>Unmanned Aircraft System for atmospheric research, Aerial measurements, mission planning</li>
    </ul>
   </div>
   <div id="subrataAcademic" style="display:none;">
    <h3>Academic Background</h3>
    <ul>
-    <li>Ph.D. in Remote Sensing</li>
-    <li>M.Tech in Atmospheric Science</li>
-    <li>B.Tech in Physics</li>
+    <li>I. Ph.D. (Physics) From National Central University, Taiwan.</li>
+    <li>II. PGDCA (Computer Science) From Guru Ghasidas University.</li>
+    <li>III. M.Sc. (Physics) From Guru Ghasidas University.</li>
+    <li>IV. B.Sc. (Physics, Chemistry, Mathematics) From Guru Ghasidas University.</li>
    </ul>
   </div>
   <div id="subrataResearch" style="display:none;">
    <h3>Research Interests</h3>
    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
-    <li>Radar meteorology</li>
-    <li>Cloud dynamics</li>
-    <li>Precipitation analysis</li>
+    <li>Lidar Remote sensing of Clouds and Aerosols</li>
+    <li>Radar and Satellite Meteorology</li>
+    <li>Tropopause dynamics</li>
+    <li>Atmospheric wave</li>
+    <li>Design and development of scanning lidar</li>
    </ul>
   </div><!-- Sunil Khadgarai -->
   <div id="sunilExpertise" style="display:none;">
@@ -699,25 +735,31 @@ footer {
   <div id="nikhilExpertise" style="display:none;">
    <h3>Expertise</h3>
    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
-    <li>System Administration</li>
-    <li>Technical Operations</li>
-    <li>Equipment Maintenance</li>
+    <li>Embedded Software development</li>
+    <li>C / C++ Programming</li>
+    <li>Device Driver Development</li>
+    <li>Linux-Based Systems</li>
+    <li>Microcontroller Programming</li>
+    <li>IoT Software Solutions</li>
    </ul>
   </div>
   <div id="nikhilAcademic" style="display:none;">
    <h3>Academic Records</h3>
    <ul>
-    <li>B.Sc. Science</li>
-    <li>Technical Certification</li>
-    <li>Professional Training</li>
+    <li>I. PG-Diploma in Embedded System Design From CDAC.</li>
+    <li>II. M.Sc. (Electronics) From Savitribai Phule Pune University.</li>
+    <li>III. B.Sc. (Electronics) From Savitribai Phule Pune University.</li>
    </ul>
   </div>
   <div id="nikhilResearch" style="display:none;">
    <h3>Research Interest</h3>
    <ul style="list-style-type:square; padding-left:22px; line-height:1.8;">
-    <li>Weather Monitoring Systems</li>
-    <li>Data Collection Methods</li>
-    <li>Technical Innovation</li>
+    <li>Embedded System Development</li>
+    <li>Signal Processing</li>
+    <li>Renewable Energy Systems</li>
+    <li>Automation & Control Systems</li>
+    <li>Instrumentation & Sensors</li>
+    <li>Real-Time Operating Systems (RTOS)</li>
    </ul>
   </div><!-- MODAL OVERLAY -->
   <div id="modalOverlay" class="modal-overlay"></div>
